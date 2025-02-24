@@ -1,6 +1,9 @@
 const express = require('express');
 const axios = require('axios');
-const cheerio = require('cheerio');
+const { JSDOM } = require('jsdom');
+const { config } = require('dotenv');
+
+config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,14 +18,20 @@ app.get('/getUserData', async (req, res) => {
     try {
         const response = await axios.get(`https://t.me/${username}`);
         const html = response.data;
-        const $ = cheerio.load(html);
-        const title = $('meta[property="og:title"]').attr('content');
-        const image = $('meta[property="og:image"]').attr('content');
+
+        const dom = new JSDOM(html);
+        const document = dom.window.document;
+
+        const title = document.querySelector('meta[property="og:title"]')?.content;
+        const image = document.querySelector('meta[property="og:image"]')?.content;
+
         if (!title || !image) {
             return res.status(404).json({ error: 'Данные не найдены' });
         }
+
         res.json({ name: title, photo: image });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Ошибка при получении данных' });
     }
 });
