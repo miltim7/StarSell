@@ -477,6 +477,7 @@ section {
   font-weight: 600;
   cursor: pointer;
   background-color: var(--blue);
+  text-decoration: none;
   color: var(--white);
   margin-bottom: 10px;
 }
