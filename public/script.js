@@ -20,7 +20,7 @@ function initForm() {
   purchaseBtn.addEventListener('click', handlePurchase);
 }
 
-function handlePurchase() {
+async function handlePurchase() {
   const starsInput = document.getElementById('starsAmount');
   const recipientInput = document.getElementById('recipient');
   const starsValue = parseInt(starsInput.value.trim(), 10);
@@ -42,6 +42,11 @@ function handlePurchase() {
     alert('Введите корректный Telegram юзернейм (от 5 до 32 символов, начинается с буквы).');
     return;
   }
+
+  // Создаём счёт на оплату
+  const {
+    url,
+  } = await createInvoice(starsValue, username)
 
   // Получаем данные пользователя через серверное API
   fetchUserData(username)
@@ -67,11 +72,11 @@ const newContent = `
       <span class="highlight-stars">${starsValue} ЗВЕЗД</span> ДЛЯ <span class="highlight-name">${userData.name}</span>
     </p>
   </div>
-  <button class="payment-btn">
+  <a href="${url}" class="payment-btn" target="_blank">
     <span>Рублями (Lava)</span>
     <img src="images/payment.png" alt="Icon" class="payment-icon">
-  </button>
-  <p class="status">Статус: Нет</p>
+  </a>
+  <p class="status">Статус: Не оплачено</p>
   <a href="https://t.me/StarSell_support" class="support-link">Написать в поддержку</a>
 </div>
 `;
@@ -93,8 +98,20 @@ document.querySelector('.purchase-section').innerHTML = newContent;
     });
 }
 
+function createInvoice(
+  starsQuantity,
+  username,
+)
+{
+  return fetch(`https://starsellpro.com/create-invoice.php?stars_quantity=${starsQuantity}&nickname=@${username}`)
+  .then(res => res.json())
+  .then(data => {
+    return data
+  })
+}
+
 function fetchUserData(username) {
-  return fetch(`/getUserData?username=${username}`)
+  return fetch(`https://starsellpro.com/get-username.php?username=${username}`)
     .then(res => res.json())
     .then(data => {
       if (data.error) {
