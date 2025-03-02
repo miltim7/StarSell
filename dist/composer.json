@@ -1,0 +1,13 @@
+{
+    "name": "user/star.sell",
+    "type": "project",
+    "require": {
+        "lava-payment/lava": "v1.0.2.x-dev",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "classes/"
+        }
+    }
+}
