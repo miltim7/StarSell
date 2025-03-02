@@ -1,0 +1,504 @@
+:root {
+  --blue: #248bda;
+  --blue-hover: #2563eb;
+  --body-bg: #1a2026;
+  --header-bg: rgba(33, 42, 51, .9);
+  --footer-bg: #111417;
+  --text-primary: #Fff;
+  --text-secondary: #8794a1;
+  --logo-highlight: #fbbf24;
+  --star-color: #fbbf24;
+  --input-bg: #242e38;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  background-color: var(--body-bg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--input-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 5px;
+  border: 2px solid var(--input-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+button {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--header-bg);
+  padding: 10px 15px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+header .logo {
+  font-weight: normal;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--white);
+}
+
+header .logo span {
+  color: var(--logo-highlight);
+}
+
+header img {
+  width: 32px;
+  margin-right: 5px;
+  margin-top: -2px;
+}
+
+header p {
+  margin-left: 10px;
+  margin-top: 5px;
+  color: var(--white);
+}
+
+.cart-icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+section {
+  padding: 0 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.purchase-section {
+  margin-top: 20px;
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.purchase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.dummy-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.purchase-heading {
+  flex: 1;
+}
+
+.purchase-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.star {
+  color: var(--star-color);
+}
+
+.purchase-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Группы полей */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Вложенная обёртка для лупы и поля */
+.input-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+}
+
+/* Поля ввода */
+.form-group input {
+  width: 100%;
+  padding: 13px;
+  background-color: var(--input-bg);
+  border: none;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+
+/* Дополнительный отступ слева, чтобы текст не налезал на иконку лупы */
+#recipient,
+#starsAmount {
+  padding-left: 40px;
+}
+
+.form-group input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Кнопка покупки */
+.purchase-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.purchase-btn:hover {
+  background-color: var(--blue-hover);
+  transition: .3s ease;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+}
+
+.section-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 800px;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.section-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
+  height: auto;
+}
+
+.gift-img-wrapper {
+  text-align: center;
+}
+
+.gift-amount {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-top: 10px;
+}
+
+.join-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  max-width: 800px;
+  cursor: pointer;
+  background-color: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+}
+
+.join-btn:hover {
+  background-color: var(--blue-hover);
+  transition: 0.3s ease;
+}
+
+.send-gift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: var(--input-bg);
+}
+
+.send-gift img {
+  max-width: 130px;
+  margin: 10px;
+}
+
+.send-gift p,
+.send-gift span {
+  color: var(--text-primary) !important;
+}
+
+.send-gift span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  text-align: center;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.terms-section,
+.policy-section {
+  padding: 20px;
+}
+
+.terms-section h2,
+.policy-section h2 {
+  margin-top: 20px;
+  color: var(--text-primary);
+}
+
+.terms-section ul,
+.policy-section ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.terms-section li,
+.policy-section li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  margin-top: 15px;
+  line-height: 1.8rem;
+}
+
+.terms-section p,
+.policy-section p {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.terms-section a,
+.policy-section a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.terms-section a:hover,
+.policy-section a:hover {
+  text-decoration: underline;
+}
+
+/* Контейнер для заголовка с трёхколоночным макетом */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Левая колонка – фиксированная ширина для стрелки */
+.header-left {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Центр – заголовок выравнивается по центру */
+.header-center {
+  flex: 1;
+  text-align: center;
+}
+
+/* Правая колонка – пустая, для баланса макета */
+.header-right {
+  width: 50px;
+}
+
+/* Стили для кнопки "Назад" */
+.back-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-icon-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Заголовок purchase-header остаётся без изменений */
+.purchase-header {
+  text-align: center;
+}
+
+/* Блок с данными пользователя */
+.user-block {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Стили для блока с информацией о пользователе – строка */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Центрирование текста и выделение цвета */
+.user-text {
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Выделяем количество звезд, имя и статус одним цветом */
+.highlight-stars,
+.highlight-name,
+.status {
+  color: var(--logo-highlight);
+  font-weight: bold;
+}
+
+/* Кнопка оплаты */
+.payment-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--blue);
+  text-decoration: none;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.payment-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Центрированный статус */
+.status {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Ссылка поддержки */
+.support-link {
+  display: block;
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
